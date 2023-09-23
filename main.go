@@ -1,16 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/imrandil/go_channel/pipeline" // Replace with your full module path
+)
 
 func main() {
 	//input
 	nums := []int{3, 4, 9, 2, 1}
 
 	//stage 1
-	dataChannel := sliceToChannel(nums)
+	dataChannel := pipeline.SliceToChannel(nums)
 
 	//stage 2
-	finalChannel := sq(dataChannel)
+	finalChannel := pipeline.Sq(dataChannel)
 
 	//output it now in the main channel
 	for n := range finalChannel {

@@ -1,6 +1,6 @@
-package main
+package pipeline
 
-func sliceToChannel(nums []int) <-chan int {
+func SliceToChannel(nums []int) <-chan int {
 	out := make(chan int) //making a non buffered channel to make it synchronous.
 
 	go func() {
@@ -12,7 +12,7 @@ func sliceToChannel(nums []int) <-chan int {
 	return out
 }
 
-func sq(numChannel <-chan int) <-chan int {
+func Sq(numChannel <-chan int) <-chan int {
 	out := make(chan int) //making a non buffered channel to make it synchronous
 
 	go func() {
